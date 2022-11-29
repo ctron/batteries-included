@@ -1,5 +1,7 @@
 FROM registry.access.redhat.com/ubi9-minimal:latest
 
+LABEL org.opencontainers.image.source="https://github.com/ctron/batteries-included"
+
 ARG KUBECTL_VERSION="1.25.4"
 ARG HTTPIE_VERSION="3.2.1"
 
