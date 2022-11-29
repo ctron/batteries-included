@@ -6,6 +6,8 @@ LABEL org.opencontainers.image.description="A cloud side scripting container, ba
 ARG KUBECTL_VERSION="1.25.4"
 ARG HTTPIE_VERSION="3.2.1"
 
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 COPY bin/add-version.sh /usr/local/bin/add-version
 COPY bin/arch.sh /usr/local/bin/arch
 COPY bin/versions.sh /usr/local/bin/versions
