@@ -1,6 +1,7 @@
 FROM registry.access.redhat.com/ubi9-minimal:latest
 
 LABEL org.opencontainers.image.source="https://github.com/ctron/batteries-included"
+LABEL org.opencontainers.image.description="A cloud side scripting container, batteries included."
 
 ARG KUBECTL_VERSION="1.25.4"
 ARG HTTPIE_VERSION="3.2.1"
