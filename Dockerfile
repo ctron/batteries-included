@@ -11,7 +11,7 @@ COPY bin/arch.sh /usr/local/bin/arch
 COPY bin/versions.sh /usr/local/bin/versions
 
 RUN \
-    PACKAGES="jq findutils" && \
+    PACKAGES="jq findutils pip" && \
     microdnf -y install ${PACKAGES} && \
     \
     add-version jq "$(rpm -q jq)" "$(jq --version)" && \
@@ -27,8 +27,7 @@ RUN \
 
 # httpie
 RUN \
-    curl -sSL "https://github.com/httpie/httpie/releases/download/${HTTPIE_VERSION}/http" -o /usr/local/bin/http && \
-    chmod a+x /usr/local/bin/http && \
+    pip3 install httpie && \
     add-version http "${HTTPIE_VERSION}" "$(http --version)"
 
 
