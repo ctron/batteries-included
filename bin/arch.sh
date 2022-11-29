@@ -12,6 +12,9 @@ function variant2() {
     "x86_64")
       echo "amd64"
       ;;
+    "aarch64")
+      echo "arm64"
+      ;;
     *)
       echo "Unsupported platform ($(uname -m))"
       exit 1
