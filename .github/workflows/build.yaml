@@ -13,13 +13,13 @@ on:
 env:
   IMAGE_NAME: batteries
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   build:
     runs-on: ubuntu-22.04
-
-    permissions:
-      contents: read
-      packages: write
 
     steps:
       - name: Checkout
