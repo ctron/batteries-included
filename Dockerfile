@@ -7,6 +7,7 @@ ARG HTTPIE_VERSION="3.2.1"
 
 COPY bin/add-version.sh /usr/local/bin/add-version
 COPY bin/arch.sh /usr/local/bin/arch
+COPY bin/versions.sh /usr/local/bin/versions
 
 RUN \
     PACKAGES="jq findutils" && \
@@ -31,5 +32,5 @@ RUN \
 
 
 RUN \
-    cat /usr/local/lib/sbom.txt
+    versions
 
