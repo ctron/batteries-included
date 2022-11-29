@@ -44,6 +44,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: ${{ github.event_name != 'pull_request' }}
+          platforms: linux/amd64, linux/arm64
           # FIXME: In case of a breaking change, we would need to split this up, so that we can
           # also build older images with a newer base layer.
           tags: "${{ github.actor }}/${{ env.IMAGE_NAME }}:latest, ${{ github.actor }}/${{ env.IMAGE_NAME }}:1, ${{ github.actor }}/${{ env.IMAGE_NAME }}:1.0, ${{ github.actor }}/${{ env.IMAGE_NAME }}:1.0.0"
