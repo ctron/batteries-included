@@ -15,8 +15,8 @@ RUN \
     microdnf -y install ${PACKAGES} && \
     \
     add-version jq "$(rpm -q jq)" "$(jq --version)" && \
-    add-version find "$(rpm -q findutils)" "$(find --version)" && \
-    true
+    add-version find "$(rpm -q findutils)" "$(find --version)"
+
 
 # kubectl
 RUN \
