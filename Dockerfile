@@ -4,7 +4,7 @@ LABEL org.opencontainers.image.source="https://github.com/ctron/batteries-includ
 LABEL org.opencontainers.image.description="A cloud side scripting container, batteries included."
 
 ARG KUBECTL_VERSION="1.25.4"
-ARG HTTPIE_VERSION="3.2.1"
+ARG HTTPIE_VERSION='~=3.2'
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
@@ -29,7 +29,7 @@ RUN \
 
 # httpie
 RUN \
-    pip3 install httpie && \
+    pip3 install httpie${HTTPIE_VERSION} && \
     add-version http "${HTTPIE_VERSION}" "$(http --version)"
 
 
