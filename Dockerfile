@@ -13,7 +13,7 @@ COPY bin/arch.sh /usr/local/bin/arch
 COPY bin/versions.sh /usr/local/bin/versions
 
 RUN \
-    PACKAGES="jq findutils pip bzip2 curl-minimal" && \
+    PACKAGES="jq findutils pip bzip2 curl-minimal wget" && \
     microdnf -y install ${PACKAGES} && \
     \
     add-version jq "$(rpm -q jq)" "$(jq --version)" && \
