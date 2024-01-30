@@ -31,7 +31,7 @@ RUN \
 
 # lrzsz
 RUN \
-    curl -sSL https://mirror.stream.centos.org/9-stream/BaseOS/x86_64/os/Packages/lrzsz-0.12.20-55.el9.x86_64.rpm -o lrzsz.rpm \
+    curl -sSL https://mirror.stream.centos.org/9-stream/BaseOS/$(uname -m)/os/Packages/lrzsz-0.12.20-55.el9.$(uname -m).rpm -o lrzsz.rpm \
     && rpm -Uvh lrzsz.rpm \
     && rm lrzsz.rpm \
     && add-version rz "$(rpm -q lrzsz)" "$(rz --version)"\
