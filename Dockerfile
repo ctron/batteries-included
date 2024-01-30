@@ -17,8 +17,25 @@ RUN \
     microdnf -y install ${PACKAGES} && \
     \
     add-version jq "$(rpm -q jq)" "$(jq --version)" && \
-    add-version find "$(rpm -q findutils)" "$(find --version)"
+    add-version find "$(rpm -q findutils)" "$(find --version)" && \
+    add-version pip "$(rpm -q pip)" "$(pip --version)" && \
+    add-version curl "$(rpm -q curl-minimal)" "$(curl --version)" && \
+    add-version wget "$(rpm -q wget)" "$(wget --version)"
 
+
+# add CentOS key
+RUN \
+    curl -sSL https://www.centos.org/keys/RPM-GPG-KEY-CentOS-Official -O \
+    && gpg --quiet --with-fingerprint RPM-GPG-KEY-CentOS-Official \
+    && rm RPM-GPG-KEY-CentOS-Official
+
+# lrzsz
+RUN \
+    curl -sSL https://mirror.stream.centos.org/9-stream/BaseOS/x86_64/os/Packages/lrzsz-0.12.20-55.el9.x86_64.rpm -o lrzsz.rpm \
+    && rpm -Uvh lrzsz.rpm \
+    && rm lrzsz.rpm \
+    && add-version rz "$(rpm -q lrzsz)" "$(rz --version)"\
+    && add-version sz "$(rpm -q lrzsz)" "$(sz --version)"
 
 # kubectl
 RUN \
